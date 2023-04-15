@@ -17,14 +17,6 @@ command Qw wq
 noremap <SPACE>s :w<CR>
 noremap <SPACE>q :wq<CR>
 noremap <SPACE>Q :q!<CR>
-autocmd Filetype markdown noremap <SPACE>pp :MarkdownPreview<CR>
-autocmd Filetype markdown noremap <SPACE>pP :MarkdownPreviewStop<CR>
-autocmd Filetype markdown noremap <SPACE>ptt :TableModeToggle<CR>
-autocmd Filetype markdown noremap <SPACE>ptr :TableModeRealign<CR> 
-autocmd Filetype markdown noremap <F3> <Plug>MarkdownPreview
-" 开始预览
-autocmd Filetype markdown noremap <F4> <Plug>MarkdownPreviewStop
-" 关闭预览
 "noremap <C-[> /<++><CR>:nohlsearch<CR>c4l
 noremap <SPACE><Tab> <Cmd>bn<CR>
 noremap <S-Tab> <Cmd>bn<CR>
@@ -36,7 +28,8 @@ noremap <C-h> 20h
 noremap <C-j> 20j
 noremap <C-k> 20k
 noremap <C-l> 20l
-noremap <M-1> <Cmd>hi Normal ctermfg=251 ctermbg=none<CR>
+" noremap <M-1> <Cmd>hi Normal ctermfg=251 ctermbg=none<CR>
+noremap <M-1> <Cmd>hi Normal ctermbg=none<CR>
 " 开启终端透明（颜值超高）
 autocmd Filetype c noremap <M-2> <Cmd>chdir ../<CR><Cmd>set noautochdir<CR>
 autocmd Filetype c noremap <F3> <Cmd>!make<CR>
@@ -60,11 +53,6 @@ inoremap 「 「」<ESC>i
 inoremap （ （）<ESC>i
 "补全
 "inoremap <C-[> <Esc>/<++><CR>:nohlsearch<CR>c4l
-
-autocmd Filetype markdown inoremap <F3> <Plug>MarkdownPreview
-" 开始预览
-autocmd Filetype markdown inoremap <F4> <Plug>MarkdownPreviewStop
-" 关闭预览
 
 autocmd Filetype c inoremap <C-Enter> <Cmd>!make<CR>
 
