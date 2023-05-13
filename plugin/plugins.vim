@@ -23,6 +23,9 @@ Plug 'simnalamburt/vim-mundo'
 Plug 'preservim/nerdcommenter'
 " Markdown预览
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+" Coc.nvim补全框架
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 " nerdtree
