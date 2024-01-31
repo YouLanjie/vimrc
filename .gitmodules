@@ -1,9 +1,6 @@
 [submodule "pack/vim-plug/start/coc.nvim"]
 	path = pack/vim-plug/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim.git
-[submodule "pack/vim-plug/start/indentLine"]
-	path = pack/vim-plug/start/indentLine
-	url = https://github.com/Yggdroot/indentLine.git
 [submodule "pack/vim-plug/start/markdown-preview.nvim"]
 	path = pack/vim-plug/start/markdown-preview.nvim
 	url = https://github.com/iamcco/markdown-preview.nvim.git
@@ -19,15 +16,9 @@
 [submodule "pack/vim-plug/start/vim-airline"]
 	path = pack/vim-plug/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
-[submodule "pack/vim-plug/start/vim-atom-dark"]
-	path = pack/vim-plug/start/vim-atom-dark
-	url = https://github.com/gosukiwi/vim-atom-dark.git
 [submodule "pack/vim-plug/start/vim-mundo"]
 	path = pack/vim-plug/start/vim-mundo
 	url = https://github.com/simnalamburt/vim-mundo.git
-[submodule "pack/vim-plug/start/indent-blankline.nvim"]
-	path = pack/vim-plug/start/indent-blankline.nvim
-	url = https://github.com/lukas-reineke/indent-blankline.nvim.git
 [submodule "pack/vim-plug/start/auto-pairs"]
 	path = pack/vim-plug/start/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs.git
