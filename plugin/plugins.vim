@@ -13,6 +13,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 " 缩进提示
 Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
 " 主题
 Plug 'gosukiwi/vim-atom-dark'
 " 一个显示TAG的插件
@@ -168,4 +169,8 @@ vnoremap ' <Plug>NERDCommenterInvert
 "          \ CheckBackspace() ? "\<Tab>" :
 "          \ coc#refresh()
 "    inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-"    
+
+" indent line
+" ==================================================
+autocmd VimEnter * IBLEnable
+

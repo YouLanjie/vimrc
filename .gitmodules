@@ -25,3 +25,6 @@
 [submodule "pack/vim-plug/start/vim-mundo"]
 	path = pack/vim-plug/start/vim-mundo
 	url = https://github.com/simnalamburt/vim-mundo.git
+[submodule "pack/vim-plug/start/indent-blankline.nvim"]
+	path = pack/vim-plug/start/indent-blankline.nvim
+	url = https://github.com/lukas-reineke/indent-blankline.nvim.git
