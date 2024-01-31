@@ -28,3 +28,6 @@
 [submodule "pack/vim-plug/start/indent-blankline.nvim"]
 	path = pack/vim-plug/start/indent-blankline.nvim
 	url = https://github.com/lukas-reineke/indent-blankline.nvim.git
+[submodule "pack/vim-plug/start/auto-pairs"]
+	path = pack/vim-plug/start/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git

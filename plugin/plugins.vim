@@ -14,6 +14,8 @@ Plug 'preservim/nerdtree'
 " 缩进提示
 Plug 'Yggdroot/indentLine'
 Plug 'lukas-reineke/indent-blankline.nvim'
+" 自动补全另一半
+Plug 'jiangmiao/auto-pairs'
 " 主题
 Plug 'gosukiwi/vim-atom-dark'
 " 一个显示TAG的插件
