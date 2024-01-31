@@ -1,0 +1,27 @@
+[submodule "pack/vim-plug/start/coc.nvim"]
+	path = pack/vim-plug/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git
+[submodule "pack/vim-plug/start/indentLine"]
+	path = pack/vim-plug/start/indentLine
+	url = https://github.com/Yggdroot/indentLine.git
+[submodule "pack/vim-plug/start/markdown-preview.nvim"]
+	path = pack/vim-plug/start/markdown-preview.nvim
+	url = https://github.com/iamcco/markdown-preview.nvim.git
+[submodule "pack/vim-plug/start/nerdcommenter"]
+	path = pack/vim-plug/start/nerdcommenter
+	url = https://github.com/preservim/nerdcommenter.git
+[submodule "pack/vim-plug/start/nerdtree"]
+	path = pack/vim-plug/start/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule "pack/vim-plug/start/tagbar"]
+	path = pack/vim-plug/start/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule "pack/vim-plug/start/vim-airline"]
+	path = pack/vim-plug/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "pack/vim-plug/start/vim-atom-dark"]
+	path = pack/vim-plug/start/vim-atom-dark
+	url = https://github.com/gosukiwi/vim-atom-dark.git
+[submodule "pack/vim-plug/start/vim-mundo"]
+	path = pack/vim-plug/start/vim-mundo
+	url = https://github.com/simnalamburt/vim-mundo.git
