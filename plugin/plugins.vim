@@ -5,7 +5,7 @@
 " ==================================================
 " Setting by vim-plug
 " ==================================================
-call plug#begin('~/.vim/pack/vim-plug/start/')
+call plug#begin('~/.config/nvim/pack/vim-plug/start/')
 let g:plug_url_format = 'git@github.com:%s.git'
 " 状态栏
 Plug 'vim-airline/vim-airline'
@@ -24,7 +24,7 @@ Plug 'preservim/nerdcommenter'
 " Markdown预览
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 " Coc.nvim补全框架
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
