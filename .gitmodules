@@ -31,3 +31,9 @@
 [submodule "pack/vim-plug/start/auto-pairs"]
 	path = pack/vim-plug/start/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs.git
+[submodule "pack/vim-plug/start/vim-orgmode"]
+	path = pack/vim-plug/start/vim-orgmode
+	url = https://github.com/jceb/vim-orgmode.git
+[submodule "pack/vim-plug/start/vim-speeddating"]
+	path = pack/vim-plug/start/vim-speeddating
+	url = https://github.com/tpope/vim-speeddating.git
