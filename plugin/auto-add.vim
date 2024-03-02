@@ -11,7 +11,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 加入C/C++注释
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-func Local_insert_c_base()
+func s:insert_c_base()
 	call setline(1,  "/*")
 	call setline(2,  " *   Copyright (C) ".strftime("%Y")." ".expand("$USERNAME"))
 	call setline(3,  " *")
@@ -26,8 +26,8 @@ func Local_insert_c_base()
 endfunc
 
 " C head file
-func Local_insert_h()
-	call Local_insert_c_base()
+func s:insert_h()
+	call s:insert_c_base()
 	call setline(12, "#pragma once")
 	call setline(13, "")
 	call setline(14, "#ifndef _".toupper(expand("%:t:r"))."_H")
@@ -36,22 +36,22 @@ func Local_insert_h()
 	call setline(17, "#endif //".toupper(expand("%:t:r"))."_H")
 	call setline(18, "")
 endfunc
-autocmd BufNewFile *.h,*.hpp exec ":call Local_insert_h()"
+autocmd BufNewFile *.h,*.hpp call s:insert_h()
 
 " C file
-func Local_insert_c()
-	call Local_insert_c_base()
+func s:insert_c()
+	call s:insert_c_base()
 	call setline(12, "#include \"".expand("%:t:r").".h\"")
 	call setline(13, "")
 	call setline(14, "")
 endfunc
-autocmd BufNewFile *.c,*.cpp exec ":call Local_insert_c()"
+autocmd BufNewFile *.c,*.cpp call s:insert_c()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 加入shell,Makefile注释
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-func Local_insert_sh()
+func s:insert_sh()
 	call setline(1,  "#!/usr/bin/zsh")
 	call setline(2,  "")
 	call setline(3,  "#================================================================")
@@ -66,5 +66,5 @@ func Local_insert_sh()
 	call setline(12, "")
 	call setline(13, "")
 endfunc
-autocmd BufNewFile *.sh exec ":call Local_insert_sh()"
+autocmd BufNewFile *.sh call s:insert_sh()
 

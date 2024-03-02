@@ -31,7 +31,7 @@ set noshowmode           " 设置不打开底部insert
 set hidden               " 设置允许在未保存切换buffer
 " set matchpairs+=<:>    " 设置%匹配<>
 set background=dark      " 设置背景默认黑色
-set autochdir            " 自动切换当前目录为当前文件所在的目录
+" set autochdir          " 自动切换当前目录为当前文件所在的目录
 set backspace=indent,eol,start    " 设置退格键特性
 set mouse=n              " 设置鼠标
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -98,14 +98,21 @@ set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 " 记忆文件上次打开位置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 自动切换到git根目录
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+while empty(glob(".git")) && execute("pwd") != "\n/"
+	chdir ..
+endwhile
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Status Line
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set statusline {{{
+if empty(glob(".git"))
+	set autochdir
+endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 状态栏
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" set statusline {{{
 function! GetMode()
 	let m = mode()|let s:str=''|let s:color='#9ECE6A'
 	if m == 'R'|let s:color='#F7768E'|let s:str= 'Replace '
