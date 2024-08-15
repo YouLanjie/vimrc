@@ -28,47 +28,48 @@ Plug 'preservim/nerdcommenter'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 " Coc.nvim补全框架
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Org mode
-Plug 'jceb/vim-orgmode'
-Plug 'tpope/vim-speeddating'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" coc.nvim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:coc_global_extensions = [
+			\ 'coc-snippets',
+			\ 'coc-vimlsp',
+			\ 'coc-tsserver',
+			\ 'coc-clangd',
+			\ 'coc-python',
+			\ 'coc-json',
+			\ 'coc-html']
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" UltiSnips
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:UltiSnipsSnippetDirectories = ["UltiSnips", '~/.config/nvim/snippets/']
     
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set laststatus=2
-" let g:airline_theme="onedark"
 let g:airline_theme="dark"
 set ambiwidth=single
 autocmd VimEnter * silent AirlineToggleWhitespace
 
-" "这个是安装字体后 必须设置此项" 
-" let g:airline_powerline_fonts = 1
-" 
 " 打开tabline功能,方便查看Buffer和切换,省去了minibufexpl插件
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-
-" 关闭状态显示空白符号计数
-" let g:airline#extensions#whitespace#enabled = 0
-" let g:airline#extensions#whitespace#symbol = '!'
-" " 设置consolas字体 前面已经设置过
-" "set guifont=Consolas\ for\ Powerline\ FixedD:h11
-" if !exists('g:airline_symbols')
-" 	let g:airline_symbols = {}
-" endif
-" " powerline symbols
-" let g:airline_left_sep = ' '
-" let g:airline_left_alt_sep = ' '
-" let g:airline_right_sep = ' '
-" let g:airline_right_alt_sep = ' '
-" let g:airline_symbols.branch = ''
-" let g:airline_symbols.colnr = ' :'
-" let g:airline_symbols.readonly = ''
-" let g:airline_symbols.linenr = ' :'
-" let g:airline_symbols.maxlinenr = '☰ '
-" " let g:airline_symbols.maxlinenr = ',Column:'
-" let g:airline_symbols.dirty='⚡'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Markdown
@@ -77,24 +78,18 @@ autocmd Filetype markdown noremap <SPACE>pp :MarkdownPreview<CR>
 autocmd Filetype markdown noremap <SPACE>pP :MarkdownPreviewStop<CR>
 autocmd Filetype markdown noremap <SPACE>ptt :TableModeToggle<CR>
 autocmd Filetype markdown noremap <SPACE>ptr :TableModeRealign<CR> 
-" 开始预览
 autocmd Filetype markdown noremap <F2> <Plug>MarkdownPreview
-" 关闭预览
 autocmd Filetype markdown noremap <F3> <Plug>MarkdownPreviewStop
-    
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tagbar
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <F10> :TagbarToggle<CR>
-    
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" undo tree
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <F9> :MundoToggle<CR>
-    
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 注释
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap ' <Plug>NERDCommenterInvert
 vnoremap ' <Plug>NERDCommenterInvert
+    
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 其他
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <F10> :TagbarToggle<CR>
+nnoremap <F9> :MundoToggle<CR>
     

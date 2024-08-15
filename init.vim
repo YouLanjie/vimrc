@@ -51,7 +51,7 @@ set nowrap               " 禁止折行
 set backspace=2          " 使用回车键正常处理indent,eol,start等
 set sidescroll=1         " 设置向右滚动字符数
 " set nofoldenable       " 禁用折叠代码
-set foldmethod=marker    " 设置标记折叠
+set foldmethod=syntax    " 设置标记折叠
 set list lcs=tab:¦\      " 设置默认开启对齐线
 set scrolloff=3          " 设置底部距离
 
@@ -94,6 +94,10 @@ set helplang=cn
 set termencoding=utf-8
 set encoding=utf8
 set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 自动展开折叠
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au BufWinEnter * :normal zR
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 记忆文件上次打开位置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
