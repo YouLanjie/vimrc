@@ -103,6 +103,12 @@ au BufWinEnter * :normal zR
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 自动切换中文输入法
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let fcitx5state=system("fcitx5-remote")
+autocmd InsertLeave * :silent let fcitx5state=system("fcitx5-remote")[0] | silent !fcitx5-remote -c
+autocmd InsertEnter * :silent if fcitx5state == 2 | call system("fcitx5-remote -o") | endif
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 自动切换到git根目录
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 while empty(glob(".git")) && execute("pwd") != "\n/"
