@@ -14,6 +14,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.config/nvim/pack/vim-plug/start/')
 let g:plug_url_format = 'git@github.com:%s.git'
+" 主题
+Plug 'folke/tokyonight.nvim'
 " 状态栏
 Plug 'vim-airline/vim-airline'
 " 自动补全另一半
@@ -24,12 +26,15 @@ Plug 'majutsushi/tagbar'
 Plug 'simnalamburt/vim-mundo'
 " 注释
 Plug 'preservim/nerdcommenter'
-" Markdown预览
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 " Coc.nvim补全框架
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" UltiSnips
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+" 按键显示
+Plug 'folke/which-key.nvim'
+" 背景透明
+Plug 'xiyaowong/transparent.nvim'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -63,23 +68,19 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
 " vim-airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set laststatus=2
-let g:airline_theme="dark"
 set ambiwidth=single
-autocmd VimEnter * silent AirlineToggleWhitespace
+try
+	autocmd VimEnter * silent AirlineToggleWhitespace
+catch
+	echo "Please install vim-airline"
+endtry
+
+" 这个是安装字体后 必须设置此项
+let g:airline_powerline_fonts = 1
 
 " 打开tabline功能,方便查看Buffer和切换,省去了minibufexpl插件
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Markdown
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd Filetype markdown noremap <SPACE>pp :MarkdownPreview<CR>
-autocmd Filetype markdown noremap <SPACE>pP :MarkdownPreviewStop<CR>
-autocmd Filetype markdown noremap <SPACE>ptt :TableModeToggle<CR>
-autocmd Filetype markdown noremap <SPACE>ptr :TableModeRealign<CR> 
-autocmd Filetype markdown noremap <F2> <Plug>MarkdownPreview
-autocmd Filetype markdown noremap <F3> <Plug>MarkdownPreviewStop
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 注释
@@ -90,6 +91,7 @@ vnoremap ' <Plug>NERDCommenterInvert
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 其他
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <F10> :TagbarToggle<CR>
-nnoremap <F9> :MundoToggle<CR>
+nnoremap <silent> <F2> :TagbarToggle<CR>
+nnoremap <silent> <F3> :MundoToggle<CR>
+nnoremap <silent> <F4> :TransparentToggle<CR>
     

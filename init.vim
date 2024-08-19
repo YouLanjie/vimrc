@@ -118,6 +118,14 @@ endwhile
 if empty(glob(".git"))
 	set autochdir
 endif
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 主题设置
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+try
+	colorscheme tokyonight-night
+catch
+	colorscheme local-tokyonight
+endtry
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 状态栏
@@ -270,7 +278,7 @@ endfunc
 "}}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ???
+" Lexplore
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " set netrw {{{
 let g:netrw_banner = 0
@@ -279,7 +287,7 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 15
 set fillchars=vert:\⎜
-nnoremap <leader>n :Lexplore<cr> " set netrw
+nnoremap <silent> <leader>n :Lexplore<cr> " set netrw
 highlight VertSplit guibg=#1a1b26 guifg=#232433
 "}}}
 
