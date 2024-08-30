@@ -1,0 +1,32 @@
+snippet doclass "插入文件头" b
+\\documentclass[9pt]{artitle}
+endsnippet
+
+snippet title "\title{title}" b
+\\title{${1:title}}
+$0
+endsnippet
+
+snippet dochead "常用的tex文件开头" b
+% !/usr/bin/xelatex
+\\documentclass[9pt]{article}
+\\usepackage{geometry}
+\\usepackage[hidelinks]{hyperref}
+\\usepackage[UTF8]{ctex}
+\\geometry{scale=0.7}
+
+\\author{${1:author}}
+\\date{\\textit{${2:date}}}
+\\title{${3:title}}
+
+\\begin{document}
+\\maketitle
+\\tableofcontents
+$0
+\\end{document}
+endsnippet
+
+snippet fn "脚注" w
+\\footnote{${0:foo}}
+endsnippet
+
