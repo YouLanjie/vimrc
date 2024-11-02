@@ -4,8 +4,8 @@
 syn case ignore
 syn match oSpecial "[*-]"
 syn match oComment /# .*/
-syn match oHead /#+[^:]*:/ contained
-syn match oHeadStr /#+[^:]*:.*/ contains=oHead
+syn match oHead /#+[^: ]*[: ]\?/ contained
+syn match oHeadStr /#+[^: ]*[: ]\?.*/ contains=oHead
 syn match oTitle /[*]\+ .*/ contains=oSpecial
 
 syn match oLink "[\[\]]" contained
