@@ -69,11 +69,7 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set laststatus=2
 set ambiwidth=single
-try
-	autocmd VimEnter * silent AirlineToggleWhitespace
-catch
-	echo "Please install vim-airline"
-endtry
+autocmd VimEnter * silent try | exec AirlineToggleWhitespace | catch /^Vim\%((\a\+)\)\=:E121:/ | endtry
 
 " 这个是安装字体后 必须设置此项
 let g:airline_powerline_fonts = 1
