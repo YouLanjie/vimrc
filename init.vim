@@ -51,7 +51,7 @@ set nowrap               " 禁止折行
 set backspace=2          " 使用回车键正常处理indent,eol,start等
 set sidescroll=1         " 设置向右滚动字符数
 " set nofoldenable       " 禁用折叠代码
-set foldmethod=syntax    " 设置标记折叠
+set foldmethod=manual    " 设置标记折叠
 set list lcs=tab:¦\      " 设置默认开启对齐线
 set scrolloff=3          " 设置底部距离
 
