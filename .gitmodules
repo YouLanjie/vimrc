@@ -31,3 +31,6 @@
 [submodule "pack/vim-plug/start/which-key.nvim"]
 	path = pack/vim-plug/start/which-key.nvim
 	url = https://github.com/folke/which-key.nvim.git
+[submodule "pack/vim-plug/start/monokai.nvim"]
+	path = pack/vim-plug/start/monokai.nvim
+	url = https://github.com/tanvirtin/monokai.nvim.git

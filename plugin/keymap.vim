@@ -16,7 +16,7 @@ command W w
 command Q q
 command WQ wq
 command QW wq
-command Wq wq
+"command Wq wq
 command Qw wq
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -31,7 +31,7 @@ set noshowmode           " 设置不打开底部insert
 set hidden               " 设置允许在未保存切换buffer
 " set matchpairs+=<:>    " 设置%匹配<>
 set background=dark      " 设置背景默认黑色
-" set autochdir          " 自动切换当前目录为当前文件所在的目录
+set autochdir            " 自动切换当前目录为当前文件所在的目录
 set backspace=indent,eol,start    " 设置退格键特性
 set mouse=n              " 设置鼠标
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -85,7 +85,8 @@ set backupcopy=yes      " 设置备份时的行为为覆盖
 " 记忆文件Undo记录
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set undofile                           " 保存Undo文件
-set undodir=$HOME/.config/nvim/undo    " 设置保存目录
+let &undodir = fnamemodify($MYVIMRC, ":p:h")."/undo"
+" 设置保存目录
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 编码设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -111,18 +112,17 @@ autocmd InsertEnter * :silent if fcitx5state == 2 | call system("fcitx5-remote -
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 自动切换到git根目录
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-while empty(glob(".git")) && execute("pwd") != "\n/"
-	chdir ..
-endwhile
-
-if empty(glob(".git"))
-	set autochdir
+let git_dir = systemlist('git rev-parse --show-toplevel')[0]
+if v:shell_error == 0
+	set noautochdir
+	execute "cd" fnameescape(git_dir)
 endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 主题设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 try
-	colorscheme tokyonight-night
+	"colorscheme tokyonight-night
+	colorscheme monokai
 catch
 	colorscheme local-tokyonight
 endtry

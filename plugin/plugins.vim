@@ -15,7 +15,8 @@
 call plug#begin('~/.config/nvim/pack/vim-plug/start/')
 let g:plug_url_format = 'git@github.com:%s.git'
 " 主题
-Plug 'folke/tokyonight.nvim'
+"Plug 'folke/tokyonight.nvim'
+Plug 'tanvirtin/monokai.nvim'
 " 状态栏
 Plug 'vim-airline/vim-airline'
 " 自动补全另一半
