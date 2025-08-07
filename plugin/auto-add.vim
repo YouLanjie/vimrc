@@ -68,3 +68,19 @@ func s:insert_sh()
 endfunc
 autocmd BufNewFile *.sh call s:insert_sh()
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 加入python注释
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+func s:insert_py()
+	call setline(1,  "#!/usr/bin/env python")
+	call setline(2,  "")
+	call setline(3,  "def main():")
+	call setline(4,  "    pass")
+	call setline(5,  "")
+	call setline(6,  "if __name__ == \"__main__\":")
+	call setline(7,  "    main()")
+	call setline(8, "")
+endfunc
+autocmd BufNewFile *.py call s:insert_py()
+

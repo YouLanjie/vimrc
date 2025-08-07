@@ -1,36 +1,36 @@
 [submodule "pack/vim-plug/start/coc.nvim"]
 	path = pack/vim-plug/start/coc.nvim
-	url = https://github.com/neoclide/coc.nvim.git
+	url = git@github.com:neoclide/coc.nvim.git
 [submodule "pack/vim-plug/start/nerdcommenter"]
 	path = pack/vim-plug/start/nerdcommenter
-	url = https://github.com/preservim/nerdcommenter.git
+	url = git@github.com:preservim/nerdcommenter.git
 [submodule "pack/vim-plug/start/tagbar"]
 	path = pack/vim-plug/start/tagbar
-	url = https://github.com/majutsushi/tagbar.git
+	url = git@github.com:majutsushi/tagbar.git
 [submodule "pack/vim-plug/start/vim-airline"]
 	path = pack/vim-plug/start/vim-airline
-	url = https://github.com/vim-airline/vim-airline.git
+	url = git@github.com:vim-airline/vim-airline.git
 [submodule "pack/vim-plug/start/vim-mundo"]
 	path = pack/vim-plug/start/vim-mundo
-	url = https://github.com/simnalamburt/vim-mundo.git
+	url = git@github.com:simnalamburt/vim-mundo.git
 [submodule "pack/vim-plug/start/auto-pairs"]
 	path = pack/vim-plug/start/auto-pairs
-	url = https://github.com/jiangmiao/auto-pairs.git
+	url = git@github.com:jiangmiao/auto-pairs.git
 [submodule "pack/vim-plug/start/ultisnips"]
 	path = pack/vim-plug/start/ultisnips
-	url = https://github.com/SirVer/ultisnips.git
+	url = git@github.com:SirVer/ultisnips.git
 [submodule "pack/vim-plug/start/vim-snippets"]
 	path = pack/vim-plug/start/vim-snippets
-	url = https://github.com/honza/vim-snippets.git
-[submodule "pack/vim-plug/start/tokyonight.nvim"]
-	path = pack/vim-plug/start/tokyonight.nvim
-	url = https://github.com/folke/tokyonight.nvim.git
+	url = git@github.com:honza/vim-snippets.git
 [submodule "pack/vim-plug/start/transparent.nvim"]
 	path = pack/vim-plug/start/transparent.nvim
-	url = https://github.com/xiyaowong/transparent.nvim.git
+	url = git@github.com:xiyaowong/transparent.nvim.git
 [submodule "pack/vim-plug/start/which-key.nvim"]
 	path = pack/vim-plug/start/which-key.nvim
-	url = https://github.com/folke/which-key.nvim.git
+	url = git@github.com:folke/which-key.nvim.git
 [submodule "pack/vim-plug/start/monokai.nvim"]
 	path = pack/vim-plug/start/monokai.nvim
-	url = https://github.com/tanvirtin/monokai.nvim.git
+	url = git@github.com:tanvirtin/monokai.nvim.git
+[submodule "pack/vim-plug/start/aw-watcher.nvim"]
+	path = pack/vim-plug/start/aw-watcher.nvim
+	url = git@github.com:lowitea/aw-watcher.nvim.git

@@ -114,3 +114,7 @@ nnoremap <space><space> <space>
 xnoremap <silent><bs> d
 snoremap <silent><bs> <space><bs>
 
+" 设置切换主题
+nnoremap <silent><leader><F2> <cmd>colorscheme vim<CR>
+nnoremap <silent><leader><F3> <cmd>colorscheme monokai<CR>
+

@@ -36,6 +36,8 @@ Plug 'honza/vim-snippets'
 Plug 'folke/which-key.nvim'
 " 背景透明
 Plug 'xiyaowong/transparent.nvim'
+" 意义不明
+Plug 'lowitea/aw-watcher.nvim'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -92,3 +94,6 @@ nnoremap <silent> <F2> :TagbarToggle<CR>
 nnoremap <silent> <F3> :MundoToggle<CR>
 nnoremap <silent> <F4> :TransparentToggle<CR>
     
+try
+	autocmd VimEnter * lua require("aw_watcher").setup({})
+endtry
