@@ -54,6 +54,9 @@ noremap <C-l> 20l
 inoremap <c-e> <end>
 inoremap <c-a> <c-o>^
 
+" 插入退出
+inoremap <C-Space> <ESC>
+
 " cmd emacs model
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
