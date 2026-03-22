@@ -1,4 +1,12 @@
 {
   "inlayHint.enable": false,
-  "snippets.ultisnips.pythonPrompt": false
+  "snippets.ultisnips.pythonPrompt": false,
+  "languageserver": {
+    "tinymist": {
+      "command": "tinymist",
+      "filetypes": ["typst"],
+      "rootPatterns": ["*.typ", ".git/"],
+      "settings": {}
+    }
+  }
 }
