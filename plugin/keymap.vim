@@ -117,6 +117,9 @@ nnoremap <space><space> <space>
 xnoremap <silent><bs> d
 snoremap <silent><bs> <space><bs>
 
+" 复制行并保持列位置
+nnoremap <c-y> m'yyp`'j
+
 " 设置切换主题
 nnoremap <silent><leader><F2> <cmd>colorscheme vim<CR>
 nnoremap <silent><leader><F3> <cmd>colorscheme monokai<CR>
