@@ -5,11 +5,11 @@
 
 " 定义函数，用于在选中区域前后添加标记
 " ------------------------------------
-function OrgEncloseInQuote() range
-  " 在选中区域的第一行之前插入 #+begin_quote
-  call append(a:firstline-1, '#+begin_quote')
-  " 在选中区域的最后一行之后插入 #+end_quote
-  call append(a:lastline+1, '#+end_quote')
+function OrgEncloseInBlock(blockname="quote") range
+  " 在选中区域的第一行之前插入 #+begin_
+  call append(a:firstline-1, '#+begin_'.a:blockname)
+  " 在选中区域的最后一行之后插入 #+end_
+  call append(a:lastline+1, '#+end_'.a:blockname)
 endfunction
 
 " 函数：添加脚注引用和定义
@@ -140,7 +140,10 @@ endfunction
 " ----------
 func s:Local_input_org()
 	" 在可视模式下，按 <leader>q 执行包裹
-	vnoremap <silent><leader>q :call OrgEncloseInQuote()<CR>
+	vnoremap <silent><leader>q :call OrgEncloseInBlock("quote")<CR>
+	noremap <silent><leader>q :call OrgEncloseInBlock("quote")<CR>
+	vnoremap <silent><leader>s :call OrgEncloseInBlock("src")<CR>
+	noremap <silent><leader>s :call OrgEncloseInBlock("src")<CR>
 	" 创建映射，例如在普通模式下按 <leader>fn 触发
 	nnoremap <silent><leader>fc :call OrgAddFootnote()<CR>
 	" 映射：g] 跳转到脚注定义，g[ 跳转到引用
