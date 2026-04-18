@@ -40,6 +40,13 @@ nnoremap <silent><expr><c-m> &bt==''?":w<cr>":
 			\ getwininfo(win_getid())[0]["quickfix"]!=0?"\<cr>:cclose<cr>":
 			\ getwininfo(win_getid())[0]["loclist"]!=0?"\<cr>:lclose<cr>":"\<cr>"
 
+" 开启一个绘画buff
+func s:OpenDrawBuff()
+	new "绘画"
+	setlocal buftype=nofile
+endfunc
+command Draw call s:OpenDrawBuff()
+
 " Fast indent
 nnoremap = >i{
 nnoremap - <i{
@@ -64,6 +71,7 @@ cnoremap <c-h> <left>
 cnoremap <c-l> <right>
 cnoremap <c-b> <s-left>
 cnoremap <c-f> <s-right>
+cnoremap <c-y> <c-r>0
 
 " set pair baket
 cnoremap ( ()<left>
@@ -103,6 +111,7 @@ nnoremap <silent><leader>tn :tabn<cr>
 
 " set search noh
 nnoremap <silent><leader>/ :noh<cr>
+vnoremap <silent><leader>/ y/<c-r>0<cr>
 
 " set split window
 nnoremap <silent><nowait>_ :vsp<cr>:bn<cr>

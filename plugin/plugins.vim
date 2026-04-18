@@ -29,6 +29,7 @@ Plug 'simnalamburt/vim-mundo'
 Plug 'preservim/nerdcommenter'
 " Coc.nvim补全框架
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'dense-analysis/ale'
 " UltiSnips
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -36,6 +37,8 @@ Plug 'honza/vim-snippets'
 Plug 'folke/which-key.nvim'
 " 背景透明
 Plug 'xiyaowong/transparent.nvim'
+" rust分析
+Plug 'rust-lang/rust.vim'
 " 意义不明
 "Plug 'lowitea/aw-watcher.nvim'
 call plug#end()
