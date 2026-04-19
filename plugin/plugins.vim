@@ -29,7 +29,8 @@ Plug 'simnalamburt/vim-mundo'
 Plug 'preservim/nerdcommenter'
 " Coc.nvim补全框架
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'dense-analysis/ale'
+" 代码检查
+Plug 'dense-analysis/ale'
 " UltiSnips
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -64,6 +65,9 @@ inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 " <C-g>u breaks current undo, please make your own choice
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" 代码检查
+" 忽略 AnnexK 相关安全建议
+let g:ale_c_clangtidy_checks = ['-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips
