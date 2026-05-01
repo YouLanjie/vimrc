@@ -40,8 +40,8 @@ Plug 'folke/which-key.nvim'
 Plug 'xiyaowong/transparent.nvim'
 " rust分析
 Plug 'rust-lang/rust.vim'
-" 意义不明
-"Plug 'lowitea/aw-watcher.nvim'
+" 对齐 EasyAlign
+Plug 'junegunn/vim-easy-align'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
