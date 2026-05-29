@@ -27,6 +27,8 @@ Plug 'majutsushi/tagbar'
 Plug 'simnalamburt/vim-mundo'
 " 注释
 Plug 'preservim/nerdcommenter'
+" nvim的lsp服务支持
+Plug 'neovim/nvim-lspconfig'
 " Coc.nvim补全框架
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " 代码检查
@@ -65,9 +67,14 @@ inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 " <C-g>u breaks current undo, please make your own choice
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" lspconfig配置
+lua vim.lsp.enable('clangd')
 " 代码检查
 " 忽略 AnnexK 相关安全建议
 let g:ale_c_clangtidy_checks = ['-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling']
+" 关闭ale的lsp服务
+let g:ale_disable_lsp = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips
@@ -100,7 +107,3 @@ vnoremap ' <Plug>NERDCommenterInvert
 nnoremap <silent> <F2> :TagbarToggle<CR>
 nnoremap <silent> <F3> :MundoToggle<CR>
 nnoremap <silent> <F4> :TransparentToggle<CR>
-    
-"try
-	"autocmd VimEnter * lua require("aw_watcher").setup({})
-"endtry

@@ -40,3 +40,6 @@
 [submodule "pack/vim-plug/start/vim-easy-align"]
 	path = pack/vim-plug/start/vim-easy-align
 	url = git@github.com:junegunn/vim-easy-align
+[submodule "pack/vim-plug/start/nvim-lspconfig"]
+	path = pack/vim-plug/start/nvim-lspconfig
+	url = git@github.com:neovim/nvim-lspconfig.git

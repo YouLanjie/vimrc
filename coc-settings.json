@@ -8,5 +8,6 @@
       "rootPatterns": ["*.typ", ".git/"],
       "settings": {}
     }
-  }
+  },
+  "clangd.arguments": ["--header-insertion=never"]
 }
