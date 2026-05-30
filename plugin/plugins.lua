@@ -104,6 +104,47 @@ lint.linters.clangtidy = {
 }
 
 -- ===================
+-- lualine配置
+-- ===================
+require('lualine').setup({
+	options = {
+		theme = "auto",
+		-- section_separators = "",
+		-- component_separators = "",
+	},
+	sections = {
+		lualine_a = { 'mode' },
+		lualine_b = { 'branch' },
+		lualine_c = { 'filename' },
+		lualine_x = { 'encoding', 'filetype' },
+		lualine_y = { 'progress' },
+		lualine_z = { 'location', 'diagnostics' },   -- 添加 diagnostics 组件
+	},
+	tabline = {
+		lualine_a = {
+			{ "buffers", buffers_color = {
+				-- 当前 buffer 背景亮色
+				active = { bg = '#b65619', fg = '#FFFFFF' },
+				-- 其他 buffer 背景暗色
+				inactive = { bg = '#2A2A2A', fg = '#AAAAAA' },
+			},}
+		},
+		lualine_z = {"tabs"},
+	},
+})
+
+-- ===================
+-- 片段补全配置
+-- ===================
+require('luasnip').setup({})
+require("luasnip.loaders.from_vscode").lazy_load()  -- 加载friendly-snippets
+local ls = require("luasnip")
+-- 插入模式下：Tab 向前跳转 / 如果没有可跳转则尝试展开 snippet
+vim.keymap.set({"i", "s"}, "<C-j>", function() if ls.expand_or_jumpable() then ls.expand_or_jump() end end, { silent = true })
+-- Shift+Tab 向后跳转
+vim.keymap.set({"i", "s"}, "<C-k>", function() if ls.jumpable(-1) then ls.jump(-1) end end, { silent = true })
+
+-- ===================
 -- 其他配置
 -- ===================
 -- 在光标停留时自动显示浮窗（延迟300ms）
@@ -126,26 +167,6 @@ require('nvim-autopairs').setup({
 	fast_wrap = {},
 	disable_filetype = { "TelescopePrompt", "vim" },
 })
-require('lualine').setup({
-	options = {
-		theme = "auto",
-		-- section_separators = "",
-		-- component_separators = "",
-	},
-	sections = {
-		lualine_a = { 'mode' },
-		lualine_b = { 'branch' },
-		lualine_c = { 'filename' },
-		lualine_x = { 'encoding', 'filetype' },
-		lualine_y = { 'progress' },
-		lualine_z = { 'location', 'diagnostics' },   -- 添加 diagnostics 组件
-	},
-	tabline = {
-		lualine_a = {"buffers"},
-		lualine_z = {"tabs"},
-	},
-})
-require('luasnip').setup({})
 require('Comment').setup({
 	toggler = {
 		line = "'"
