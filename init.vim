@@ -132,7 +132,7 @@ catch
 endtry
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 状态栏
+" 状态栏 (未安装lualine的备用方案）
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " set statusline {{{
 function! GetMode()
@@ -169,7 +169,6 @@ set statusline+=%5*☰\ %l/%-L¦%3p%%¦:%v\ ¦
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tab Line
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set tabline {{{
 let s:tab_after=""
 func! TabLine(direct)
 	let s:tab_result=""|let flag=0
@@ -193,105 +192,3 @@ func! TabLineSet()
 endfunc
 set tabline=%!TabLineSet()
 set showtabline=2
-"}}}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Highlight
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" highlight define,you can change self {{{
-highlight User1 font=#000000 guifg=#1a1b26 guibg=#9ECE6A
-highlight User2 font=#000000 guifg=#9ECE6A guibg=#232433
-highlight User3 font=#000000 guifg=#1a1b26 guibg=#9ECE6A
-highlight User4 font=#000000 guifg=#9ECE6A guibg=#232433
-highlight User5 font=#000000 guifg=#1a1b26 guibg=#7AA2F7
-highlight User6 font=#000000 guifg=#7AA2F7 guibg=#232433
-"}}}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Sourround
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim sourround {{{
-let g:pair_map={'(':')','[':']','{':'}','"':'"',"'":"'",'<':'>','`':'`',}
-func! s:AddSourround()
-	let s:ch=nr2char(getchar())|let s:col=col('.')|let pos=getcurpos()
-	norm! gv"sy
-	let s:str = @s
-	for k in keys(g:pair_map)
-		if s:ch==k||s:ch==g:pair_map[k]
-			execute ":s/^\\(.\\{".(col('.')-1)."\\}\\)".escape(s:str, '~"\.^$[]*')."/\\1".k.s:str.g:pair_map[k]."/"
-			call setpos('.', pos)
-			return
-		endif
-	endfor
-	echo s:ch.' unknow pair'
-endfunc
-func! s:DelSourround()
-	let s:ch=nr2char(getchar())
-	if getline('.')[col('.')-1]!=s:ch|echo 'not begin with'.s:ch|return|endif
-	for k in keys(g:pair_map)
-		if s:ch==k|execute 'normal! xf'.g:pair_map[k].'x'|return|endif
-	endfor
-endfunc
-func! s:ChangeSourround()
-	let s:ch=nr2char(getchar())|let s:two=nr2char(getchar())
-	let pos=getcurpos()
-	if getline('.')[col('.')-1]!=s:ch|echo 'not begin with'.s:ch|return|endif
-	execute 'normal! r'.s:two.'f'.g:pair_map[s:ch].'r'.g:pair_map[s:two]
-	call setpos('.',pos)
-endfunc
-xnoremap <silent>S  :<c-u>call <sid>AddSourround()<cr>
-nnoremap <silent>ds :call <sid>DelSourround()<cr>
-nnoremap <silent>cs :call <sid>ChangeSourround()<cr>
-"}}}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ctags
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ctags config{{{
-command! -nargs=? TagCreate call s:CreateTags(<q-args>,0)
-command! -nargs=? TagPwd    call s:CreateTags(<q-args>,1)
-command! -nargs=0 TagKind echo system("ctags --list-maps")
-command! -nargs=1 -complete=tag  TagFind exec ":ts /".<q-args>
-command! -nargs=1 -complete=file TagSave if exists("g:tag_file")&&filereadable(g:tag_file)|call system("cp ".g:tag_file." ".<q-args>)|endif
-cab TagSave TagSave <c-r>=<sid>FindRoot()<cr>/tags
-nnoremap <space>c  :let temp=taglist(input("Enter regex find:"))<bar>redraw<bar>echo temp<cr>
-nnoremap <space>C  :TagCreate<cr>
-nnoremap <leader>u <c-]>
-nnoremap <expr><c-]> <sid>FindTags(expand('<cword>'))
-vnoremap <nowait><c-]> "sy:TagFind <c-r>=@s<cr><cr>
-func! s:FindTags(str)
-	let list=taglist(a:str)
-	if len(list)==1|return "\<c-]>"|else|return ":ts ".a:str."\<cr>"|endif
-endfunc
-func! s:CreateTags(arg,flag)
-	if exists("g:tag_file")|exec "set tags-=".g:tag_file|endif|let g:tag_file=tempname()
-	if a:flag|let g:tag_file="./tags"|endif
-	if a:arg!=""|let arg=" --languages=".a:arg|else|let arg=" "|endif
-	let dir=s:FindRoot()
-	if dir==""|let dir=getcwd()|endif
-	call job_start("ctags -f ".g:tag_file.arg." --tag-relative=no -R ".dir,
-				\{"close_cb":"CreateTagCB","err_cb":"CreateTagErrCB"})
-	exec "set tags+=".g:tag_file
-endfunc
-func! CreateTagErrCB(chan,msg)
-	echoerr a:msg
-endfunc
-func! CreateTagCB(chan)
-	call popup_create("tags create success", #{pos:'botright',time: 1000,highlight: 'WarningMsg',border: [],close: 'click',})
-endfunc
-"}}}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Lexplore
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set netrw {{{
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 15
-set fillchars=vert:\⎜
-nnoremap <silent> <leader>n :Lexplore<cr> " set netrw
-highlight VertSplit guibg=#1a1b26 guifg=#232433
-"}}}
-

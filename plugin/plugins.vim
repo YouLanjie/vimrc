@@ -17,93 +17,40 @@ let g:plug_url_format = 'git@github.com:%s.git'
 " 主题
 "Plug 'folke/tokyonight.nvim'
 Plug 'tanvirtin/monokai.nvim'
-" 状态栏
-Plug 'vim-airline/vim-airline'
+" 状态栏 (Lua)
+Plug 'nvim-lualine/lualine.nvim'
 " 自动补全另一半
-Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 " 一个显示TAG的插件
-Plug 'majutsushi/tagbar'
+Plug 'liuchengxu/vista.vim'
 " 撤销树
-Plug 'simnalamburt/vim-mundo'
+Plug 'mbbill/undotree'
 " 注释
-Plug 'preservim/nerdcommenter'
+Plug 'numToStr/Comment.nvim'
 " nvim的lsp服务支持
 Plug 'neovim/nvim-lspconfig'
-" Coc.nvim补全框架
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" 代码检查
-Plug 'dense-analysis/ale'
-" UltiSnips
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" 自动补全
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'      " LSP 来源
+Plug 'hrsh7th/cmp-buffer'        " 当前缓冲区
+Plug 'hrsh7th/cmp-path'          " 文件路径
+Plug 'hrsh7th/cmp-cmdline'       " 命令行补全（可选）
+Plug 'L3MON4D3/LuaSnip'          " 片段引擎
+Plug 'saadparwaiz1/cmp_luasnip'  " 片段来源
+Plug 'onsails/lspkind.nvim'      " 可选：额外美观
+" 代码检查 (仅非 LSP 检查)
+Plug 'mfussenegger/nvim-lint'
 " 按键显示
 Plug 'folke/which-key.nvim'
-" 背景透明
-Plug 'xiyaowong/transparent.nvim'
-" rust分析
-Plug 'rust-lang/rust.vim'
 " 对齐 EasyAlign
 Plug 'junegunn/vim-easy-align'
+" 背景透明
+Plug 'xiyaowong/transparent.nvim'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" coc.nvim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:coc_global_extensions = [
-			\ 'coc-snippets',
-			\ 'coc-vimlsp',
-			\ 'coc-tsserver',
-			\ 'coc-clangd',
-			\ 'coc-python',
-			\ 'coc-json',
-			\ 'coc-html']
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-" Make <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own choice
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-" lspconfig配置
-lua vim.lsp.enable('clangd')
-" 代码检查
-" 忽略 AnnexK 相关安全建议
-let g:ale_c_clangtidy_checks = ['-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling']
-" 关闭ale的lsp服务
-let g:ale_disable_lsp = 1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" UltiSnips
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:UltiSnipsSnippetDirectories = ["UltiSnips", '~/.config/nvim/snippets/']
-    
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-airline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set laststatus=2
-set ambiwidth=single
-autocmd VimEnter * silent try | exec AirlineToggleWhitespace | catch /^Vim\%((\a\+)\)\=:E121:/ | endtry
-
-" 这个是安装字体后 必须设置此项
-let g:airline_powerline_fonts = 1
-
-" 打开tabline功能,方便查看Buffer和切换,省去了minibufexpl插件
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 注释
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap ' <Plug>NERDCommenterInvert
-vnoremap ' <Plug>NERDCommenterInvert
-    
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 其他
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <F2> :TagbarToggle<CR>
-nnoremap <silent> <F3> :MundoToggle<CR>
+nnoremap <silent> <F2> :Vista<CR>
+nnoremap <silent> <F3> :UndoTreeToggle<CR>
 nnoremap <silent> <F4> :TransparentToggle<CR>

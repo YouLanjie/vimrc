@@ -1,27 +1,3 @@
-[submodule "pack/vim-plug/start/coc.nvim"]
-	path = pack/vim-plug/start/coc.nvim
-	url = git@github.com:neoclide/coc.nvim.git
-[submodule "pack/vim-plug/start/nerdcommenter"]
-	path = pack/vim-plug/start/nerdcommenter
-	url = git@github.com:preservim/nerdcommenter.git
-[submodule "pack/vim-plug/start/tagbar"]
-	path = pack/vim-plug/start/tagbar
-	url = git@github.com:majutsushi/tagbar.git
-[submodule "pack/vim-plug/start/vim-airline"]
-	path = pack/vim-plug/start/vim-airline
-	url = git@github.com:vim-airline/vim-airline.git
-[submodule "pack/vim-plug/start/vim-mundo"]
-	path = pack/vim-plug/start/vim-mundo
-	url = git@github.com:simnalamburt/vim-mundo.git
-[submodule "pack/vim-plug/start/auto-pairs"]
-	path = pack/vim-plug/start/auto-pairs
-	url = git@github.com:jiangmiao/auto-pairs.git
-[submodule "pack/vim-plug/start/ultisnips"]
-	path = pack/vim-plug/start/ultisnips
-	url = git@github.com:SirVer/ultisnips.git
-[submodule "pack/vim-plug/start/vim-snippets"]
-	path = pack/vim-plug/start/vim-snippets
-	url = git@github.com:honza/vim-snippets.git
 [submodule "pack/vim-plug/start/transparent.nvim"]
 	path = pack/vim-plug/start/transparent.nvim
 	url = git@github.com:xiyaowong/transparent.nvim.git
@@ -31,15 +7,54 @@
 [submodule "pack/vim-plug/start/monokai.nvim"]
 	path = pack/vim-plug/start/monokai.nvim
 	url = git@github.com:tanvirtin/monokai.nvim.git
-[submodule "pack/vim-plug/start/rust.vim"]
-	path = pack/vim-plug/start/rust.vim
-	url = git@github.com:rust-lang/rust.vim.git
-[submodule "pack/vim-plug/start/ale"]
-	path = pack/vim-plug/start/ale
-	url = git@github.com:dense-analysis/ale
 [submodule "pack/vim-plug/start/vim-easy-align"]
 	path = pack/vim-plug/start/vim-easy-align
 	url = git@github.com:junegunn/vim-easy-align
 [submodule "pack/vim-plug/start/nvim-lspconfig"]
 	path = pack/vim-plug/start/nvim-lspconfig
 	url = git@github.com:neovim/nvim-lspconfig.git
+[submodule "pack/vim-plug/start/Comment.nvim"]
+	path = pack/vim-plug/start/Comment.nvim
+	url = git@github.com:numToStr/Comment.nvim.git
+[submodule "pack/vim-plug/start/LuaSnip"]
+	path = pack/vim-plug/start/LuaSnip
+	url = git@github.com:L3MON4D3/LuaSnip.git
+[submodule "pack/vim-plug/start/cmp-buffer"]
+	path = pack/vim-plug/start/cmp-buffer
+	url = git@github.com:hrsh7th/cmp-buffer.git
+[submodule "pack/vim-plug/start/cmp-cmdline"]
+	path = pack/vim-plug/start/cmp-cmdline
+	url = git@github.com:hrsh7th/cmp-cmdline.git
+[submodule "pack/vim-plug/start/cmp-nvim-lsp"]
+	path = pack/vim-plug/start/cmp-nvim-lsp
+	url = git@github.com:hrsh7th/cmp-nvim-lsp.git
+[submodule "pack/vim-plug/start/cmp-path"]
+	path = pack/vim-plug/start/cmp-path
+	url = git@github.com:hrsh7th/cmp-path.git
+[submodule "pack/vim-plug/start/cmp_luasnip"]
+	path = pack/vim-plug/start/cmp_luasnip
+	url = git@github.com:saadparwaiz1/cmp_luasnip.git
+[submodule "pack/vim-plug/start/nvim-cmp"]
+	path = pack/vim-plug/start/nvim-cmp
+	url = git@github.com:hrsh7th/nvim-cmp.git
+[submodule "pack/vim-plug/start/nvim-lint"]
+	path = pack/vim-plug/start/nvim-lint
+	url = git@github.com:mfussenegger/nvim-lint.git
+[submodule "pack/vim-plug/start/undotree"]
+	path = pack/vim-plug/start/undotree
+	url = git@github.com:mbbill/undotree.git
+[submodule "pack/vim-plug/start/vista.vim"]
+	path = pack/vim-plug/start/vista.vim
+	url = git@github.com:liuchengxu/vista.vim.git
+[submodule "pack/vim-plug/start/friendly-snippets"]
+	path = pack/vim-plug/start/friendly-snippets
+	url = git@github.com:rafamadriz/friendly-snippets
+[submodule "pack/vim-plug/start/lspkind.nvim"]
+	path = pack/vim-plug/start/lspkind.nvim
+	url = git@github.com:onsails/lspkind.nvim.git
+[submodule "pack/vim-plug/start/lualine.nvim"]
+	path = pack/vim-plug/start/lualine.nvim
+	url = git@github.com:nvim-lualine/lualine.nvim.git
+[submodule "pack/vim-plug/start/nvim-autopairs"]
+	path = pack/vim-plug/start/nvim-autopairs
+	url = git@github.com:windwp/nvim-autopairs.git

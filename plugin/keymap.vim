@@ -47,6 +47,13 @@ func s:OpenDrawBuff()
 endfunc
 command Draw call s:OpenDrawBuff()
 
+" 切换工作区到当前文件
+func s:ReChdir()
+	set autochdir
+	set noautochdir
+endfunc
+command Chdir call s:ReChdir()
+
 " Fast indent
 nnoremap = >i{
 nnoremap - <i{
