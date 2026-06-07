@@ -46,6 +46,8 @@ Plug 'folke/which-key.nvim'
 Plug 'junegunn/vim-easy-align'
 " 背景透明
 Plug 'xiyaowong/transparent.nvim'
+" org支持
+Plug 'nvim-orgmode/orgmode'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

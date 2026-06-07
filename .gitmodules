@@ -58,3 +58,6 @@
 [submodule "pack/vim-plug/start/nvim-autopairs"]
 	path = pack/vim-plug/start/nvim-autopairs
 	url = git@github.com:windwp/nvim-autopairs.git
+[submodule "pack/vim-plug/start/orgmode"]
+	path = pack/vim-plug/start/orgmode
+	url = git@github.com:nvim-orgmode/orgmode.git

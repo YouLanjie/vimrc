@@ -33,10 +33,10 @@ cmp.setup({
 		format = require("lspkind").cmp_format({ with_text = true }),
 	},
 	-- 可调节窗口样式
-	window = {
+	--[[ window = {
 		completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
-	},
+	}, ]]
 })
 
 -- 命令行补全（单独配置）
@@ -48,6 +48,7 @@ cmp.setup.cmdline(":", {
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = cmp.config.sources({ { name = "cmdline" } }),
 })
+vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
 
 -- ===================
 -- lspconfig配置
@@ -136,13 +137,12 @@ require('lualine').setup({
 -- ===================
 -- 片段补全配置
 -- ===================
-require('luasnip').setup({})
+luasnip.setup({})
 require("luasnip.loaders.from_vscode").lazy_load()  -- 加载friendly-snippets
-local ls = require("luasnip")
 -- 插入模式下：Tab 向前跳转 / 如果没有可跳转则尝试展开 snippet
-vim.keymap.set({"i", "s"}, "<C-j>", function() if ls.expand_or_jumpable() then ls.expand_or_jump() end end, { silent = true })
+vim.keymap.set({"i", "s"}, "<C-j>", function() if luasnip.expand_or_jumpable() then luasnip.expand_or_jump() end end, { silent = true })
 -- Shift+Tab 向后跳转
-vim.keymap.set({"i", "s"}, "<C-k>", function() if ls.jumpable(-1) then ls.jump(-1) end end, { silent = true })
+vim.keymap.set({"i", "s"}, "<C-k>", function() if luasnip.jumpable(-1) then luasnip.jump(-1) end end, { silent = true })
 
 -- ===================
 -- 其他配置
@@ -163,15 +163,16 @@ vim.api.nvim_create_autocmd("CursorHold", {
 		vim.diagnostic.open_float(nil, { focusable = false, scope = "cursor" })
 	end,
 })
-require('nvim-autopairs').setup({
+pcall(function() require('nvim-autopairs').setup({
 	fast_wrap = {},
 	disable_filetype = { "TelescopePrompt", "vim" },
-})
-require('Comment').setup({
+}) end)
+pcall(function() require('Comment').setup({
 	toggler = {
 		line = "'"
 	},
 	opleader = {
 		block = "'"
 	}
-})  -- 快捷键：gcc行内 gbc行间
+}) end)  -- 快捷键：gcc行内 gbc行间
+pcall(function() require('orgmode').setup({}) end)
