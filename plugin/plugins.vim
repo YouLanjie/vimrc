@@ -54,5 +54,6 @@ call plug#end()
 " 其他
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <silent> <F2> :Vista<CR>
+nnoremap <silent> <leader><leader>t :Vista<CR>
 nnoremap <silent> <F3> :UndoTreeToggle<CR>
 nnoremap <silent> <F4> :TransparentToggle<CR>

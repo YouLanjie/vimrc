@@ -41,10 +41,13 @@ cmp.setup({
 
 -- 命令行补全（单独配置）
 cmp.setup.cmdline("/", {
+	-- 关闭自动补全防止与只是上下切换历史就进了补全(TAB仍旧会手动触发)
+	completion = { autocomplete = false },
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = { { name = "buffer" } },
 })
 cmp.setup.cmdline(":", {
+	completion = { autocomplete = false },
 	mapping = cmp.mapping.preset.cmdline(),
 	sources = cmp.config.sources({ { name = "cmdline" } }),
 })
