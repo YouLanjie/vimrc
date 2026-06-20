@@ -37,6 +37,7 @@ Plug 'hrsh7th/cmp-path'          " 文件路径
 Plug 'hrsh7th/cmp-cmdline'       " 命令行补全（可选）
 Plug 'L3MON4D3/LuaSnip'          " 片段引擎
 Plug 'saadparwaiz1/cmp_luasnip'  " 片段来源
+Plug 'rafamadriz/friendly-snippets'
 Plug 'onsails/lspkind.nvim'      " 可选：额外美观
 " 代码检查 (仅非 LSP 检查)
 Plug 'mfussenegger/nvim-lint'
@@ -46,8 +47,8 @@ Plug 'folke/which-key.nvim'
 Plug 'junegunn/vim-easy-align'
 " 背景透明
 Plug 'xiyaowong/transparent.nvim'
-" org支持
-Plug 'nvim-orgmode/orgmode'
+" org支持(改到opt下)
+" Plug 'nvim-orgmode/orgmode'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

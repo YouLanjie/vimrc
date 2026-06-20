@@ -178,4 +178,3 @@ pcall(function() require('Comment').setup({
 		block = "'"
 	}
 }) end)  -- 快捷键：gcc行内 gbc行间
-pcall(function() require('orgmode').setup({}) end)

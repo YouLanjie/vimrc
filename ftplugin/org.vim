@@ -138,17 +138,17 @@ endfunction
 
 " 添加快捷键
 " ----------
-func s:Local_input_org()
-	" 在可视模式下，按 <leader>q 执行包裹
-	vnoremap <buffer> <silent><leader>q :call OrgEncloseInBlock("quote")<CR>
-	noremap <buffer> <silent><leader>q :call OrgEncloseInBlock("quote")<CR>
-	vnoremap <buffer> <silent><leader>s :call OrgEncloseInBlock("src")<CR>
-	noremap <buffer> <silent><leader>s :call OrgEncloseInBlock("src")<CR>
-	" 创建映射，例如在普通模式下按 <leader>fn 触发
-	nnoremap <buffer> <silent><leader>fc :call OrgAddFootnote()<CR>
-	" 映射：g] 跳转到脚注定义，g[ 跳转到引用
-	nnoremap <buffer> <silent>g] :call OrgJumpToFootnoteDef()<CR>
-	nnoremap <buffer> <silent>g[ :call OrgJumpToFootnoteRef()<CR>
-endfunc
-autocmd Filetype org call s:Local_input_org()
+" 在可视模式下，按 <leader>q 执行包裹
+vnoremap <buffer> <silent><leader>q :call OrgEncloseInBlock("quote")<CR>
+noremap <buffer> <silent><leader>q :call OrgEncloseInBlock("quote")<CR>
+vnoremap <buffer> <silent><leader>s :call OrgEncloseInBlock("src")<CR>
+noremap <buffer> <silent><leader>s :call OrgEncloseInBlock("src")<CR>
+" 创建映射，例如在普通模式下按 <leader>fn 触发
+nnoremap <buffer> <silent><leader>fc :call OrgAddFootnote()<CR>
+" 映射：g] 跳转到脚注定义，g[ 跳转到引用
+nnoremap <buffer> <silent>g] :call OrgJumpToFootnoteDef()<CR>
+nnoremap <buffer> <silent>g[ :call OrgJumpToFootnoteRef()<CR>
+
+nnoremap <buffer> <silent><leader>l :packadd orgmode<CR>
+lua pcall(function() require('orgmode').setup({}) end)
 
