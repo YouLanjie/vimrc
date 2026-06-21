@@ -192,3 +192,21 @@ func! TabLineSet()
 endfunc
 set tabline=%!TabLineSet()
 set showtabline=2
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 大文件搜索优化（不计数设置）
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 定义阈值（单位：字节，这里设为 1MB，可根据需要改）
+let g:large_file_threshold = 5 * 1024 * 1024
+
+" 自动命令组
+augroup AutoLargeFileSetting
+	autocmd!
+	" BufReadPre 在读取文件前触发，此时文件大小已知，但尚未加载进内存
+	autocmd BufReadPre * 
+		\ if getfsize(expand('<afile>')) > g:large_file_threshold
+		\ |   set shortmess+=S 
+		\ | else 
+		\ |   set shortmess-=S 
+		\ | endif
+augroup END

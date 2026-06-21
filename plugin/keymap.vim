@@ -109,6 +109,11 @@ nnoremap <leader><leader>n :cnext<cr>
 nnoremap <leader><leader>p :cprevious<cr>
 nnoremap <leader><leader>o :copen<cr>
 nnoremap <leader><leader>c :cclose<cr>
+" location list
+nnoremap <leader><leader>ln :lnext<cr>
+nnoremap <leader><leader>lp :lprevious<cr>
+nnoremap <leader><leader>lo :lopen<cr>
+nnoremap <leader><leader>lc :lclose<cr>
 
 " tab ctrl
 nnoremap <silent><leader>to :tabnew<cr>
