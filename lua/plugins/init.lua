@@ -1,0 +1,67 @@
+return {
+	{ "tanvirtin/monokai.nvim", lazy = false, priority = 1000 },
+	-- { "folke/tokyonight.nvim" },
+	{
+		"nvim-lualine/lualine.nvim",
+		opts = {
+			options = {
+				theme = "auto",
+				-- section_separators = "",
+				-- component_separators = "",
+			},
+			sections = {
+				lualine_a = { 'mode' },
+				lualine_b = { 'branch' },
+				lualine_c = { 'filename' },
+				lualine_x = { 'encoding', 'filetype' },
+				lualine_y = { 'progress' },
+				lualine_z = { 'location', 'diagnostics' },   -- 添加 diagnostics 组件
+			},
+			tabline = {
+				lualine_a = {
+					{ "buffers", buffers_color = {
+						-- 当前 buffer 背景亮色
+						active = { bg = '#b65619', fg = '#FFFFFF' },
+						-- 其他 buffer 背景暗色
+						inactive = { bg = '#2A2A2A', fg = '#AAAAAA' },
+					},}
+				},
+				lualine_z = {"tabs"},
+			},
+}
+	},
+	-- 自动补全另一半
+	{
+		"windwp/nvim-autopairs",
+		opts = {
+			fast_wrap = {},
+			disable_filetype = { "TelescopePrompt", "vim" },
+		},
+	},
+	-- 一个显示TAG的插件
+	{
+		"liuchengxu/vista.vim",
+		keys = {
+			{ "<F2>", ":Vista", mode = "n" },
+			{ "<leader><leader>t", ":Vista", mode = "n" }
+		}
+	},
+	-- 撤销树
+	{ "mbbill/undotree", keys = { {"<F3>", ":UndoTreeToggle", mode = "n"} } },
+	-- 快速注释
+	{
+		"numToStr/Comment.nvim",
+		opts = {
+			toggler = { line = "'" },
+			opleader = { block = "'" }
+		},
+	},
+	-- 按键显示
+	{ "folke/which-key.nvim", lazy = true },
+	-- 对齐 EasyAlign
+	{ "junegunn/vim-easy-align" },
+	-- 背景透明
+	{ "xiyaowong/transparent.nvim", keys = { {"<F4>", ":TransparentToggle", mode = "n"} } },
+	-- org支持(改到opt下)
+	-- { "nvim-orgmode/orgmode" },
+}
