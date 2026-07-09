@@ -42,12 +42,12 @@ return {
 	{
 		"liuchengxu/vista.vim",
 		keys = {
-			{ "<F2>", ":Vista", mode = "n" },
-			{ "<leader><leader>t", ":Vista", mode = "n" }
+			{ "<F2>", ":Vista<cr>", mode = "n" },
+			{ "<leader><leader>t", ":Vista<cr>", mode = "n" }
 		}
 	},
 	-- 撤销树
-	{ "mbbill/undotree", keys = { {"<F3>", ":UndoTreeToggle", mode = "n"} } },
+	{ "mbbill/undotree", keys = { {"<F3>", ":UndotreeToggle<cr>", mode = "n"} } },
 	-- 快速注释
 	{
 		"numToStr/Comment.nvim",
@@ -61,7 +61,7 @@ return {
 	-- 对齐 EasyAlign
 	{ "junegunn/vim-easy-align" },
 	-- 背景透明
-	{ "xiyaowong/transparent.nvim", keys = { {"<F4>", ":TransparentToggle", mode = "n"} } },
+	{ "xiyaowong/transparent.nvim", keys = { {"<F4>", ":TransparentToggle<cr>", mode = "n"} } },
 	-- org支持(改到opt下)
 	-- { "nvim-orgmode/orgmode" },
 }
