@@ -244,6 +244,8 @@ setlocal quickfixtextfunc=s:OrgMyQFText
 " 在可视模式下，按 <leader>q 执行包裹
 vnoremap <buffer> <silent><leader>q :call OrgEncloseInBlock("quote")<CR>
 noremap <buffer> <silent><leader>q :call OrgEncloseInBlock("quote")<CR>
+vnoremap <buffer> <silent><leader>c :call OrgEncloseInBlock("center")<CR>
+noremap <buffer> <silent><leader>c :call OrgEncloseInBlock("center")<CR>
 vnoremap <buffer> <silent><leader>s :call OrgEncloseInBlock("src")<CR>
 noremap <buffer> <silent><leader>s :call OrgEncloseInBlock("src")<CR>
 " 创建映射，例如在普通模式下按 <leader>fn 触发
@@ -255,7 +257,4 @@ nnoremap <buffer> <silent>g[ :call OrgJumpToFootnoteRef()<CR>
 nnoremap <buffer> <silent>J :call OrgSmartJoin()<CR>
 " 命令封装
 nnoremap <buffer> <silent>gO :call OrgShowChapterQF()<CR>
-
-nnoremap <buffer> <silent><leader>l :packadd orgmode<CR>
-lua pcall(function() require('orgmode').setup({}) end)
 

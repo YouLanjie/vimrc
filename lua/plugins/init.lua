@@ -28,7 +28,7 @@ return {
 				},
 				lualine_z = {"tabs"},
 			},
-}
+		},
 	},
 	-- 自动补全另一半
 	{
@@ -57,11 +57,11 @@ return {
 		},
 	},
 	-- 按键显示
-	{ "folke/which-key.nvim", lazy = true },
+	{ "folke/which-key.nvim" },
 	-- 对齐 EasyAlign
 	{ "junegunn/vim-easy-align" },
 	-- 背景透明
-	{ "xiyaowong/transparent.nvim", keys = { {"<F4>", ":TransparentToggle<cr>", mode = "n"} } },
+	{ "xiyaowong/transparent.nvim", keys = { {"<F4>", ":TransparentToggle<cr>", mode = "n"} }, lazy = false },
 	-- org支持(改到opt下)
 	-- { "nvim-orgmode/orgmode" },
 }

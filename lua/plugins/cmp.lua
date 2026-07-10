@@ -71,7 +71,8 @@ return {
 			sources = { { name = "buffer" } },
 		})
 		cmp.setup.cmdline(":", {
-			completion = { autocomplete = false },
+			-- 在:下可以自动弹出补全
+			-- completion = { autocomplete = false },
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = cmp.config.sources({ { name = "cmdline" } }),
 		})
