@@ -6,6 +6,7 @@ return {
 			vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
 			vim.lsp.enable('clangd')
 			vim.lsp.enable('pyright')
+			vim.lsp.enable('bashls')
 			vim.lsp.enable('lua_ls')
 			vim.lsp.config['lua_ls'] = {
 				-- 从:h lsp抄的配置

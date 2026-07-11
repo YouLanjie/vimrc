@@ -36,7 +36,7 @@ return {
 		lint.linters.clangtidy = {
 			cmd = "clang-tidy",
 			args = vim.list_extend(default_args, {
-				"--checks=-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
+				"--checks=clang-analyzer*,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling",
 			}),
 			stream = "stdout",
 			ignore_exitcode = true,
