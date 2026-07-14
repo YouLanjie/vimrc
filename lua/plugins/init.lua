@@ -62,6 +62,16 @@ return {
 	{ "junegunn/vim-easy-align" },
 	-- 背景透明
 	{ "xiyaowong/transparent.nvim", keys = { {"<F4>", ":TransparentToggle<cr>", mode = "n"} }, lazy = false },
+	{
+		"danymat/neogen",
+		config = function()
+		require('neogen').setup({
+			snippet_engine = "luasnip",
+		})
+		-- 设置快捷键，比如在函数上按 <Leader>d 生成
+		vim.keymap.set('n', '<Leader><Leader>d', function() require('neogen').generate() end, { desc = 'Generate annotation' })
+		end,
+	},
 	-- org支持(改到opt下)
 	-- { "nvim-orgmode/orgmode" },
 }
