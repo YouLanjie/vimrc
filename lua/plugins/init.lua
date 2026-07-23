@@ -50,10 +50,12 @@ return {
 	{ "mbbill/undotree", keys = { {"<F3>", ":UndotreeToggle<cr>", mode = "n"} } },
 	-- 快速注释
 	{
-		"numToStr/Comment.nvim",
+		"nvim-mini/mini.comment",
 		opts = {
-			toggler = { line = "'" },
-			opleader = { block = "'" }
+			mappings = {
+				comment_line = "'",
+				comment_visual = "'",
+			},
 		},
 	},
 	-- 按键显示
